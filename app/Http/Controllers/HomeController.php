@@ -18,19 +18,31 @@ public function index()
         $usertype=Auth()->user()->usertype;
         if($usertype=='user')
     {
-    return view('dashboard');
+    return view('User.Userdashboard');
 
     }
     else if($usertype=='admin')
     {
-    return view('admin.adminhome');
+    return view('layouts.admindashboard');
 
+    }
+    else if($usertype=='dosen')
+    {
+
+    return view('dosen.dosendashboard');
     }
     else
     {
         return redirect()->back();
     }
-    }
+
+}
 
     }
+    public function post()
+    {
+        return view("post");
+    }
 }
+
+
